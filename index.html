@@ -16,48 +16,88 @@
 <nav>
     <a href="index.html" class="active">Startseite</a>
     <a href="navigation/team.html">Unser Team</a>
-    <a href="navigation/verein.html">Verein</a>
+    <a href="navigation/verein.html">Unser Verein</a>
     <a href="navigation/spielplan.html">Spielplan</a>
     <a href="navigation/kontakt.html">Kontakt</a>
 </nav>
 
 <div class="content" id="home">
-    <h2>Willkommen bei unserer Korbball Sportmannschaft</h2>
-    <p>Wir sind eine leidenschaftliche Korbballmannschaft, die sowohl auf als auch neben dem Spielfeld großartige Leistungen erbringt. Erfahren Sie mehr über unser Team, unsere Spielpläne und wie Sie uns kontaktieren können.</p>
-    <img src="team-photo.jpg" alt="Teamfoto" class="team-photo">
-</div>
-
-<div class="content" id="team">
-    <h2>Unser Team</h2>
-    <ul class="team-members">
-        <li><strong>Spieler 1</strong> - Position: Angreifer</li>
-        <li><strong>Spieler 2</strong> - Position: Verteidiger</li>
-        <li><strong>Spieler 3</strong> - Position: Mittelfeld</li>
-        <!-- Fügen Sie weitere Teammitglieder hinzu -->
-    </ul>
+    <h2>Willkommen bei Korbball Gossau ZH</h2>
+    <!-- Der Inhalt aus Team wird hier angezeigt -->
 </div>
 
 <div class="content" id="schedule">
     <h2>Spielplan</h2>
     <p>Unser Spielplan für die kommende Saison:</p>
-    <ul>
-        <li>01.06.2024 - Team A vs. Unsere Mannschaft</li>
-        <li>15.06.2024 - Unsere Mannschaft vs. Team B</li>
-        <li>29.06.2024 - Team C vs. Unsere Mannschaft</li>
-        <!-- Fügen Sie weitere Spiele hinzu -->
-    </ul>
+    <!-- Der Inhalt aus Spielplan wird hier angezeigt -->
+</div>
+
+<div class="content" id="news">
+    <h2>News</h2>
+    <h3>Hier finden sie die aktuellsten News, wie Angebote, Events und weiteres!</h3>
+    <h4>Probemonat im September</h4>
+    <p>Es freut uns immer, neue Gesichter im Training zu sehen und gerne würden wir auch dich bei uns begrüssen! Für den gesamtem Monat September kannst du gratis bei uns für ein Probetraining vorbeikommen, um das Team und den Sport kennenzulernen. Egal ob du schon einmal eine Ballsportart gespielt hast oder ein Neuling bist – wir werden sicher eine coole Zeit zusammen haben. Wenn wir dein Interesse geweckt haben und du gerne beim Korballverein Gossau vorbeischauen möchtest, dann kannst du dich bei Andrea, unserer Trainerin unter +41 79 820 76 75 oder andrea.kunz1@gmx.ch für ein Schnuppertraining anmelden.</p>
 </div>
 
 <div class="content" id="contact">
     <h2>Kontakt</h2>
-    <p>Wenn Sie Fragen haben oder unserem Team beitreten möchten, können Sie uns unter folgender Adresse erreichen:</p>
-    <p>Email: info@korbballexample.de</p>
-    <p>Telefon: 01234-567890</p>
+    <p>Wenn Sie fragen haben oder unserem Team beitreten möchten, navigieren Sie oben rechts zu kontakt oder drücken Sie auf den unteren Knopf.</p>
+    <a href="navigation/kontakt.html" class="contact-btn">Kontaktseite besuchen</a>
 </div>
 
 <footer>
     &copy; 2024 Korbball Sportmannschaft. Alle Rechte vorbehalten.
 </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Lade den Inhalt von team.html und füge ihn in #home ein
+        fetch("navigation/team.html") // Stelle sicher, dass der Pfad korrekt ist!
+            .then(response => response.text())
+            .then(data => {
+                let parser = new DOMParser();
+                let htmlDoc = parser.parseFromString(data, "text/html");
+
+                // Holt den Inhalt von #team aus team.html
+                let teamContent = htmlDoc.querySelector("#team");
+
+                // Entferne das erste <h2> Element aus dem teamContent, wenn es vorhanden ist
+                let heading = teamContent.querySelector("h2");
+                if (heading) {
+                    heading.remove(); // Entfernt das <h2> Element
+                }
+
+                // Füge den bearbeiteten Inhalt in den #home-Bereich von index.html ein
+                document.getElementById("home").innerHTML += teamContent.innerHTML;
+            })
+            .catch(error => console.error("Fehler beim Laden von team.html:", error));
+
+        // Lade den Inhalt von spielplan.html und füge ihn in #schedule ein
+        fetch("navigation/spielplan.html") // Stelle sicher, dass der Pfad korrekt ist!
+            .then(response => response.text())
+            .then(data => {
+                let parser = new DOMParser();
+                let htmlDoc = parser.parseFromString(data, "text/html");
+
+                // Holt den Inhalt von #schedule aus spielplan.html
+                let scheduleContent = htmlDoc.querySelector("#schedule");
+
+                // Entferne das erste <h2> Element aus dem scheduleContent, wenn es vorhanden ist
+                let scheduleHeading = scheduleContent.querySelector("h2");
+                if (scheduleHeading) {
+                    scheduleHeading.remove(); // Entfernt das <h2> Element
+                }
+
+                // Füge den bearbeiteten Inhalt in den #schedule-Bereich von index.html ein,
+                // aber der <h2> Titel von index.html bleibt bestehen
+                let scheduleContainer = document.getElementById("schedule");
+
+                // Wir kopieren den inneren HTML-Inhalt und fügen es in den #schedule-Bereich von index.html ein
+                scheduleContainer.innerHTML += scheduleContent.innerHTML;
+            })
+            .catch(error => console.error("Fehler beim Laden von spielplan.html:", error));
+    });
+</script>
 
 </body>
 </html>
