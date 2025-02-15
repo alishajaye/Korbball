@@ -163,18 +163,39 @@ footer {
 
 #trainingschedule {
     margin-bottom: 10px;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 /* Spezifisch für Kontakt */
 #contact {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+#contact {
     text-align: center;
-    padding: 0;
 }
 
 #contact ul {
     list-style: none;
     padding: 0;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 15px;
+    background-color: #3498db; /* Blau */
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: #2980b9; /* Dunkleres Blau */
 }
 
 #schedule {
@@ -184,4 +205,133 @@ footer {
 #schedule ul {
     list-style: none;
     padding: 0;
+}
+
+#news {
+    text-align: center;
+}
+
+#news ul {
+    list-style: none;
+    padding: 0;
+}
+/* Spezifisch für Verein*/
+#verein {
+    text-align: center;
+}
+
+#verein ul {
+    list-style: none;
+    padding: 0;
+}
+
+#verein {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.sponsor-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0;
+    list-style: none;
+}
+.sponsor-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.sponsor-item:hover {
+    transform: scale(1.05);
+}
+.sponsor-logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+        .verein-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0;
+    list-style: none;
+}
+.verein-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.verein-item:hover {
+    transform: scale(1.05);
+}
+.verein-logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Spezifisch für Team */
+
+#team {
+    text-align: center;
+}
+
+#team ul {
+    list-style: none;
+    padding: 0;
+}
+
+#trainingsession {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+#trainingsession {
+    text-align: center;
+}
+
+#trainingsession ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Spezifisch für Trainer */
+#trainer {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+#trainer {
+    text-align: center;
+}
+
+#trainer ul {
+    list-style: none;
+    padding: 0;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;   /* Stellt sicher, dass der Inhalt untereinander steht */
+    align-items: center;      /* Horizontal zentrieren */
+    justify-content: center;  /* Vertikal zentrieren */
+    text-align: center;       /* Text innerhalb der Elemente zentrieren */
+    min-height: 100vh;
+}
+
+#home img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
 }
