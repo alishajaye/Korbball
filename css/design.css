@@ -81,17 +81,29 @@ nav a.active{
     line-height: 1.6;
 }
 
-.team-photo {
-    width: 100%;
-    max-width: 600px;
-    display: block;
+/* NEU: Container für mehrere Teambilder nebeneinander */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     margin: 20px auto;
+    max-width: 1000px; /* Begrenzt die Gesamtbreite der Galerie */
+}
+
+/* NEU: Styling für die einzelnen Bilder in der Galerie */
+.image-gallery img {
+    flex: 1 1 280px; /* Bilder passen sich flexibel an, Basisgröße 280px */
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
 
-.team-photo:hover {
+/* NEU: Hover-Effekt für die Galerie-Bilder */
+.image-gallery img:hover {
     transform: scale(1.05);
 }
 
@@ -255,7 +267,7 @@ footer {
     height: auto;
     margin-bottom: 10px;
 }
-        .verein-list {
+.verein-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -337,17 +349,15 @@ footer {
 }
 
 .news-image {
-        width: 100%;
-        max-width: 500px;
-        height: auto;
-        display: block;
-        margin: 20px auto;
-        border-radius: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: -webkit-transform 0.3s;
-        -webkit-transform: translateZ(0); /* Safari Bugfix */
-    }
-    
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
 
 .news-image:hover {
     transform: scale(1.05);
