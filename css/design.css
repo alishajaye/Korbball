@@ -362,3 +362,9 @@ footer {
 .news-image:hover {
     transform: scale(1.05);
 }
+
+.gallery_images {
+    width: 180px;
+    height: 130px;
+    object-fit: cover;
+}
